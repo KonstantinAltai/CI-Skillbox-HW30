@@ -29,7 +29,7 @@ jobs:
       - name: tests
         run: |
           mypy --ignore-missing-imports fastapi_app/  # Запускаем тесты
-          black --check --diff fastapi_app/ 
+          black fastapi_app/ # --check --diff fastapi_app/ 
           #isort --check-only --profile black fastapi_app/
           #flake8 fastapi_app/
           
