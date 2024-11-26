@@ -28,4 +28,4 @@ jobs:
 
       - name: tests
         run: |
-          black --diff --check # Запускаем тесты
+          black --diff --check fastapi_app/ # Запускаем тесты
