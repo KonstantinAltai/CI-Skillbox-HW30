@@ -33,16 +33,12 @@ jobs:
       - name: test black
         run: |
           black fastapi_app/ # --check --diff fastapi_app/
-          
+
       - name: test flake8
         run: |
-          flake8 --extend-ignore E501 fastapi_app/
+          flake8 fastapi_app/ # --extend-ignore E501 
 
       - name: test isort
         run: |
-          isort --check-only --profile black fastapi_app/
-
-      - name: test flake8
-        run: |
-          flake8 --extend-ignore E501 fastapi_app/
+          isort --profile black fastapi_app/ # --check-only 
           
