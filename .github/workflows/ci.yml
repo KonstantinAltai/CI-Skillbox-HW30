@@ -36,7 +36,7 @@ jobs:
 
       - name: test flake8
         run: |
-          flake8 fastapi_app/ # --extend-ignore E501 
+          flake8 --extend-ignore E501 fastapi_app/ 
 
       - name: test isort
         run: |
