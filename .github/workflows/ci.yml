@@ -26,6 +26,10 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt 
 
+      - name: test
+        run: |
+          pytest tests/
+          
       - name: test mypy
         run: |
           mypy --ignore-missing-imports fastapi_app/  # Запускаем тесты
