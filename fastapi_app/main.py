@@ -13,6 +13,7 @@ from fastapi.testclient import TestClient
 app = FastAPI(title='Recipes for the soul')
 client = TestClient(app)
 
+
 @app.on_event("startup")
 async def shutdown():
     async with engine.begin() as conn:
@@ -41,7 +42,7 @@ async def dishs() -> List[models.Dish]:
 
 @app.get('/recipes/{num_id}', response_model=schemas.DishOutOne)
 async def dish(num_id: int) -> schemas.DishOutOne:
-    res = await session.execute(select(models.Dish).where(models.Dish.id==num_id))
+    res = await session.execute(select(models.Dish).where(models.Dish.id == num_id))
     if res:
         await session.execute(update(models.Dish)
                  .where(models.Dish.id == num_id)
