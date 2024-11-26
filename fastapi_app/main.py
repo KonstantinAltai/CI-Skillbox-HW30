@@ -39,7 +39,7 @@ async def get_dishs() -> List[models.Dish]:
     res = await session.execute(
         select(models.Dish)
         .order_by(models.Dish.views.desc(), models.Dish.cooking_time)
-        )
+    )
     return res.scalars().all()
 
 
@@ -51,6 +51,6 @@ async def dish(num_id: int) -> schemas.DishOutOne:
             update(models.Dish)
             .where(models.Dish.id == num_id)
             .values(views = models.Dish.views+1)
-            )
+        )
         await session.commit()
     return res.scalars().first()
