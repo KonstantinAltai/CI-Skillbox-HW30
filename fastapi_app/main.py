@@ -26,7 +26,7 @@ async def shutdown():
     await engine.dispose()
 
 
-@app.post('/recipes', response_model=schemas.DishOut)
+@app.post('/recipe', response_model=schemas.DishOut)
 async def dishs(dish: schemas.DishIn) -> models.Dish:
     new_dish = models.Dish(**dish.dict())
     async with session.begin():
