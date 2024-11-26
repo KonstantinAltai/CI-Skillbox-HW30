@@ -28,7 +28,7 @@ jobs:
 
       - name: test
         run: |
-          pytest tests/
+          pytest
           
       - name: test mypy
         run: |
