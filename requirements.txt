@@ -6,5 +6,6 @@ isort==5.9.3
 mypy==1.13
 pytest==7.0.1
 pydantic
-sqlalchemy
+sqlalchemy==1.4.26
 fastapi
+aiosqlite==0.17.0
