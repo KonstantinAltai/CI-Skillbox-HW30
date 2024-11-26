@@ -1,4 +1,4 @@
-from CI-Skillbox-HW30.fastapi_app.main import client
+from main import client
 
 
 def test_post_dishs():
