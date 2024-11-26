@@ -26,16 +26,23 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt 
 
-      - name: tests
+      - name: test mypy
         run: |
           mypy --ignore-missing-imports fastapi_app/  # Запускаем тесты
-          black fastapi_app/ # --check --diff fastapi_app/ 
+
+      - name: test black
+        run: |
+          black fastapi_app/ # --check --diff fastapi_app/
           
+      - name: test flake8
+        run: |
+          flake8 --extend-ignore E501 fastapi_app/
+
       - name: test isort
-        run:
+        run: |
           isort --check-only --profile black fastapi_app/
 
       - name: test flake8
-        run:
+        run: |
           flake8 --extend-ignore E501 fastapi_app/
           
