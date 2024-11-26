@@ -28,4 +28,8 @@ jobs:
 
       - name: tests
         run: |
-          black --diff --check fastapi_app/ # Запускаем тесты
+          mypy fastapi_app/  # Запускаем тесты
+          black --diff --check fastapi_app/ 
+          isort --check-only --diff fastapi_app/
+          flake8 fastapi_app/
+          
