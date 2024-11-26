@@ -36,7 +36,10 @@ async def post_dishs(dish: schemas.DishIn) -> models.Dish:
 
 @app.get('/recipes', response_model=List[schemas.DishOut])
 async def get_dishs() -> List[models.Dish]:
-    res = await session.execute(select(models.Dish).order_by(models.Dish.views.desc(), models.Dish.cooking_time))
+    res = await session.execute(
+        select(models.Dish)
+        .order_by(models.Dish.views.desc(), models.Dish.cooking_time)
+        )
     return res.scalars().all()
 
 
@@ -44,8 +47,10 @@ async def get_dishs() -> List[models.Dish]:
 async def dish(num_id: int) -> schemas.DishOutOne:
     res = await session.execute(select(models.Dish).where(models.Dish.id == num_id))
     if res:
-        await session.execute(update(models.Dish)
-                 .where(models.Dish.id == num_id)
-                 .values(views = models.Dish.views+1))
+        await session.execute(
+            update(models.Dish)
+            .where(models.Dish.id == num_id)
+            .values(views = models.Dish.views+1)
+            )
         await session.commit()
     return res.scalars().first()
