@@ -9,3 +9,5 @@ pydantic
 sqlalchemy==1.4.26
 fastapi
 aiosqlite==0.17.0
+greenlet==1.1.2
+uvicorn[standard]==0.15.0
