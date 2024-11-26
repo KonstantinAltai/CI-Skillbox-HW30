@@ -1,4 +1,4 @@
-from fastapi_app.main import client
+from ..fastapi_app.main import client
 
 
 def test_post_dishs():
