@@ -27,7 +27,7 @@ async def shutdown():
 
 
 @app.post('/recipe', response_model=schemas.DishOut)
-async def dishs(dish: schemas.DishIn) -> models.Dish:
+async def post_dishs(dish: schemas.DishIn) -> models.Dish:
     new_dish = models.Dish(**dish.dict())
     async with session.begin():
         session.add(new_dish)
@@ -35,7 +35,7 @@ async def dishs(dish: schemas.DishIn) -> models.Dish:
 
 
 @app.get('/recipes', response_model=List[schemas.DishOut])
-async def dishs() -> List[models.Dish]:
+async def get_dishs() -> List[models.Dish]:
     res = await session.execute(select(models.Dish).order_by(models.Dish.views.desc(), models.Dish.cooking_time))
     return res.scalars().all()
 
