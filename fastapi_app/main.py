@@ -4,9 +4,9 @@ from fastapi import FastAPI
 from sqlalchemy.future import select
 from sqlalchemy import update
 
-import models
-import schemas
-from database import engine, session
+import fastapi_app.models
+import fastapi_app.schemas
+from fastapi_app.database import engine, session
 
 from fastapi.testclient import TestClient
 
