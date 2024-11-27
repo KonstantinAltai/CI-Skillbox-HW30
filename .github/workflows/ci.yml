@@ -28,7 +28,7 @@ jobs:
 
       - name: test pytest
         run: |
-          pytest --pyargs fastapi_app
+          python -m pytest
           
       - name: test mypy
         run: |
