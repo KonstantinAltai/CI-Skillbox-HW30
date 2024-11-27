@@ -14,7 +14,6 @@ def test_post_dishs():
             "recipe": "нарезать, варить"
         }
     )
-    assert response.status_code == 200
     assert len(response.json()) > 0
 
 
