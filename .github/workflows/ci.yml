@@ -29,7 +29,6 @@ jobs:
       - name: test pytest
         run: |
           cd fastapi_app
-          ls
           python -m pytest tests
           
       - name: test mypy
