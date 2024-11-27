@@ -1,4 +1,7 @@
-from ..main import client
+from main import app
+from fastapi.testclient import TestClient
+
+client = TestClient(app)
 
 
 def test_post_dishs():
