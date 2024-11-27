@@ -28,7 +28,7 @@ jobs:
 
       - name: test pytest
         run: |
-          python -m pytest
+          python -m pytest tests
           
       - name: test mypy
         run: |
